@@ -1,0 +1,57 @@
+/* Design */
+.design {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  height: 600px;
+  position: relative;
+  background-image: url(../images/design-features.jpg);
+  background-size: cover;
+  overflow: hidden;
+  @include parentFlex($align-items: center);
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+  }
+  .image,
+  .text {
+    position: relative; /* relative cuz we dont want to move it */
+    z-index: 2;
+    flex: 1;
+  }
+  .image {
+    text-align: center;
+    @media (max-width: 767px) {
+      display: none;
+    }
+    img {
+      position: relative;
+      bottom: -150px;
+    }
+  }
+  .text {
+    color: white;
+    padding: 50px;
+    background-color: var(--transparent-color);
+    h2 {
+      font-weight: normal;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+    ul li {
+      padding: 15px 0;
+      &::before {
+        font-family: 'Font Awesome 5 Free';
+        content: '\f108';
+        font-weight: 900; /* there some icons doesn't appear without font weight */
+        margin-right: 20px;
+        position: relative;
+        top: 1px;
+      }
+    }
+  }
+}

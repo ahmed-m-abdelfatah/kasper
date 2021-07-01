@@ -1,0 +1,71 @@
+/* Subscribe */
+.subscribe {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  background-image: url(../images/subscribe.jpg);
+  background-size: cover;
+  position: relative;
+  color: white;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+  }
+  .container {
+    position: relative; /* To Take The normal Z-index In Dom Tree */
+    display: flex;
+    align-items: center;
+    @media (max-width: 991px) {
+      flex-direction: column;
+    }
+    form {
+      display: flex;
+      position: relative;
+      width: 500px;
+      max-width: 100%; /* used in mobile screens */
+      i {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 25px;
+      }
+      input[type='email'] {
+        border: 1px solid white;
+        border-right: none;
+        background: none;
+        padding: 20px 20px 20px 60px;
+        caret-color: var(--main-color);
+        width: calc(100% - 130px);
+        color: white;
+      }
+      input[type='submit'] {
+        width: 130px;
+        background-color: var(--main-color);
+        color: white;
+        padding: 10px 20px;
+        border: 1px solid white;
+        border-left: none;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+      input[type='email']:focus,
+      input[type='submit']:focus {
+        outline: none;
+      }
+      ::placeholder {
+        color: white;
+      }
+    }
+    p {
+      line-height: var(--text-line-height-1);
+      margin-left: 50px;
+      @media (max-width: 991px) {
+        margin: 30px 0 0;
+      }
+    }
+  }
+}

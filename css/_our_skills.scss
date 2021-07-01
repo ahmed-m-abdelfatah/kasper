@@ -1,0 +1,124 @@
+/* Our Skills */
+.our-skills {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @media (min-width: 992px) {
+      & > div {
+        flex-basis: 45%;
+      }
+    }
+    & > div > h3 {
+      margin: 0 0 30px;
+      font-weight: normal;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    & > div > p {
+      color: var(--text-color-1);
+      line-height: var(--text-line-height-1);
+      margin-bottom: 60px;
+    }
+    .testimonials {
+      .content {
+        display: flex;
+        margin-bottom: 30px;
+        align-items: center;
+        img {
+          width: 100px;
+          border-radius: 50%;
+          margin-right: 50px;
+        }
+        @media (max-width: 767px) {
+          flex-direction: column;
+          text-align: center;
+          img {
+            margin: 0 auto 20px;
+          }
+        }
+        .text {
+          line-height: calc(var(--text-line-height-1) - 0.2);
+          border-bottom: 1px solid #ccc;
+          p {
+            color: var(--text-color-1);
+            text-align: right;
+            font-size: 14px;
+            margin-bottom: 10px;
+          }
+        }
+      }
+      .bullets {
+        display: flex;
+        justify-content: center;
+        margin: 50px auto;
+        li {
+          width: 14px;
+          height: 14px;
+          border: 1px solid #aaa;
+          border-radius: 50%;
+          margin-right: 10px;
+          cursor: pointer;
+          &.active,
+          &:hover {
+            background-color: var(--main-color);
+            border-color: var(--main-color);
+          }
+        }
+      }
+    }
+    .skills {
+      .prog-holder {
+        margin-bottom: 40px;
+        h4 {
+          margin-bottom: 15px;
+          text-transform: uppercase;
+          font-weight: normal;
+        }
+        .prog {
+          background-color: #dedadc;
+          height: 30px;
+          span {
+            display: block;
+            background-color: var(--main-color);
+            height: 100%;
+            position: relative;
+            &::before {
+              content: attr(data-progress);
+              position: absolute;
+              background-color: black;
+              color: white;
+              top: -40px;
+              right: -18px;
+              padding: 4px 0;
+              width: 40px;
+              text-align: center;
+              border-radius: 4px;
+            }
+            &[data-position='bottom']::before {
+              bottom: -40px;
+              top: auto;
+            }
+            &::after {
+              content: '';
+              position: absolute;
+              border-style: solid;
+              border-width: 8px;
+              border-color: black transparent transparent;
+              right: -7px;
+              top: -14px;
+            }
+            &[data-position='bottom']::after {
+              bottom: -14px;
+              top: auto;
+              border-color: transparent transparent black;
+            }
+            /* [Arabic] HTML, CSS Tutorials - Create Tooltip In All Positions = https://youtu.be/_qWPmT3eSvM */
+          }
+        }
+      }
+    }
+  }
+}

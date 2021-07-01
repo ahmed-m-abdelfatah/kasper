@@ -1,0 +1,103 @@
+// Grid
+//   Parent
+//   - display: grid | inline-grid
+//   - gap: [Row Gap] [Column Gap]
+//   - justify-content
+//   - align-content
+
+//   - grid-template-areas
+//   - grid-template: [grid-template-rows] / [grid-template-columns]
+//   - grid-template-columns: [Number Of Columns In] => [Px, %, Auto, Fraction, Repeat, Mix]
+//   - grid-template-rows: [Number Of Rows In] => [Px, %, Auto, Fraction, Repeat, Mix]
+//         => repeat(number of columns[rows], width[height])
+//         => repeat(auto-fill, minmax(200px, 1fr))
+//         => repeat(auto-fit, minmax(200px, 1fr))
+//         => CSS Grid Course: auto-fit vs auto-fill [https://youtu.be/uBFEryQY1fU]
+
+//   Child
+//   - grid-column: [Grid-Column-Start] / [Grid-Column-End]
+//   - grid-row: [Grid-Row-Start] / [Grid-Row-End] => Write Numbers only or span [numbers]
+//   - grid-area: [Grid-Row-Start] / [Grid-Column-Start] / [Grid-Row-End] / [Grid-Column-End]
+//   - grid-area: [grid-template-areas-name]
+//   - order: number or [-1 to get it in the first]
+
+@mixin parentGrid(
+  $display: grid,
+  $row-gap: normal,
+  $column-gap: normal,
+  $align-items: normal,
+  $justify-items: legacy,
+  $align-content: normal,
+  $justify-content: normal,
+  $grid-template-areas: none,
+  $grid-template-columns: none,
+  $grid-template-rows: none
+) {
+  display: $display;
+  @if ($row-gap != normal or $column-gap != normal) {
+    gap: $row-gap $column-gap;
+  }
+  @if ($align-items != normal or $justify-items != legacy) {
+    place-items: $align-items $justify-items;
+  }
+  @if ($align-content != normal or $justify-content != normal) {
+    place-content: $align-content $justify-content;
+  }
+  @if ($grid-template-columns != none) {
+    grid-template-columns: $grid-template-columns;
+  }
+  @if ($grid-template-rows != none) {
+    grid-template-rows: $grid-template-rows;
+  }
+  @if ($grid-template-areas != none) {
+    grid-template-areas: $grid-template-areas;
+  }
+  @content;
+}
+
+@mixin childGrid(
+  $child-width: auto,
+  $child-margin: 0,
+  $child-padding: 0,
+  $child-grid-column-start: auto,
+  $child-grid-column-end: auto,
+  $child-grid-row-start: auto,
+  $child-grid-row-end: auto
+) {
+  @if ($child-width != auto) {
+    width: $child-width;
+  }
+  @if ($child-margin != 0) {
+    margin: $child-margin;
+  }
+  @if ($child-padding != 0) {
+    padding: $child-padding;
+  }
+  @if ($child-grid-column-start != auto or $child-grid-column-end != auto) {
+    grid-column: $child-grid-column-start / $child-grid-column-end;
+  }
+  @if ($child-grid-row-start != auto or $child-grid-row-end != auto) {
+    grid-row: $child-grid-row-start / $child-grid-row-end;
+  }
+  @content;
+}
+
+// align-items:
+// justify-items:
+// place-items:
+// => place-items: [https://developer.mozilla.org/en-US/docs/Web/CSS/place-items]
+
+// => Content = set of items as one component
+// align-content:
+// justify-content:
+// place-content:
+// => place-content: [https://developer.mozilla.org/en-US/docs/Web/CSS/place-content]
+
+// grid-template-areas:
+// grid-template-columns:
+// grid-template-rows:
+// grid-template:
+// => grid-template: [https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template]
+
+// @include parentGrid();
+// @include childGrid();

@@ -1,0 +1,58 @@
+@import '_display_flex.scss';
+@import '_display_grid.scss';
+
+/* Global Rules*/
+:root {
+  --header-height: 50px;
+  --main-color: #19c8fa;
+  --transparent-color: rgba(15, 116, 143, 0.7);
+  --text-line-height-1: 2;
+  --text-color-1: #777;
+  --section-padding: 100px;
+  --transition-time: 0.3s;
+  // scroll-padding-top: calc(var(--header-height) + 10px);
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: 'Open Sans', sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  padding: 0 15px;
+  margin: 0 auto;
+
+  $container-width: (768px, 750px), (992px, 970px), (1200px, 1170px);
+  @each $i, $j in $container-width {
+    @media (min-width: $i) {
+      width: $j;
+    }
+  }
+}
+
+@import '_heading_component.scss';
+@import '_header.scss';
+@import '_landing.scss';
+@import '_services.scss';
+@import '_design.scss';
+@import '_portfolio.scss';
+@import '_video.scss';
+@import '_about_us.scss';
+@import '_stats.scss';
+@import '_our_skills.scss';
+@import '_quote.scss';
+@import '_pricing.scss';
+@import '_subscribe.scss';
+@import '_contact.scss';
+@import '_footer.scss';
