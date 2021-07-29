@@ -24,7 +24,7 @@
             font-weight: bold;
             // position: relative; /* maybe useless == yes in 12:33*/
             &::before {
-              content: '$';
+              content: "$";
               font-size: 25px;
               position: relative; /*position: absolute; will move it out of dom to span big area */
               top: -40px;
@@ -32,7 +32,7 @@
               font-weight: normal;
             }
             &::after {
-              content: '/Mo';
+              content: "/Mo";
               font-size: 20px;
               position: relative; /*position: absolute; will move it out of dom to span big area */
               right: -15px;
@@ -45,7 +45,7 @@
             padding: 20px;
             position: relative;
             &:not(:last-child)::after {
-              content: '';
+              content: "";
               width: 140px;
               height: 1px;
               background-color: var(--main-color);
@@ -64,6 +64,7 @@
             width: fit-content;
             margin: 30px auto;
             border: 1px solid var(--main-color);
+            color: var(--main-color);
           }
         }
       }
